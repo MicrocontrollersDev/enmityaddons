@@ -20,7 +20,7 @@ const MuteNewGuilds: Plugin = {
 
          const guildID = args[0]?.invite?.guild?.id;
          updateGuildNotificationSettings(guildID, {
-            muted: get('MuteNewGuilds', 'muted', true),
+            muted: get('MuteNewGuilds', 'muted', false),
             suppress_everyone: get('MuteNewGuilds', 'suppress_everyone', false),
             suppress_roles: get('MuteNewGuilds', 'suppress_roles', false),
             mobile_push: get('MuteNewGuilds', 'mobile_push', true)
