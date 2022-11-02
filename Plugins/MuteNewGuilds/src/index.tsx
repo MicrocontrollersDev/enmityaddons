@@ -16,11 +16,10 @@ const MuteNewGuilds: Plugin = {
 
    onStart() {
       Patcher.after(Dispatcher, 'dispatch', (_, args, res) => {
-         if (args[0].type !== "INVITE_ACCEPT_SUCCESS") return res;
 
          const guildID = args[0]?.invite?.guild?.id;
          updateGuildNotificationSettings(guildID, {
-            muted: get('MuteNewGuilds', 'muted', false),
+            muted: false,
             suppress_everyone: get('MuteNewGuilds', 'suppress_everyone', false),
             suppress_roles: get('MuteNewGuilds', 'suppress_roles', false),
             mobile_push: get('MuteNewGuilds', 'mobile_push', true)
